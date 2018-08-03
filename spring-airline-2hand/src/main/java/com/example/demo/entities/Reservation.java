@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "reservations", schema = "spring_airline_db", catalog = "")
+@Table(name = "reservations", schema = "spring_airline", catalog = "")
 public class Reservation {
     private int id;
     private String customerName;
@@ -159,7 +159,7 @@ public class Reservation {
     }
 
     @ManyToOne
-    @JoinColumn(name = "customer_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "customer_id", referencedColumnName = "id", nullable = false , insertable = false , updatable = false)
     public Customer getCustomersByCustomerId() {
         return customersByCustomerId;
     }
@@ -169,7 +169,7 @@ public class Reservation {
     }
 
     @ManyToOne
-    @JoinColumn(name = "schedule_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "schedule_id", referencedColumnName = "id", nullable = false , insertable = false , updatable = false)
     public FilghtSchedule getFilghtSchedulesByScheduleId() {
         return filghtSchedulesByScheduleId;
     }
@@ -179,7 +179,7 @@ public class Reservation {
     }
 
     @ManyToOne
-    @JoinColumn(name = "class_number", referencedColumnName = "class_number", nullable = false)
+    @JoinColumn(name = "class_number", referencedColumnName = "class_number", nullable = false, insertable = false , updatable = false)
     public RefClass getRefClassesByClassNumber() {
         return refClassesByClassNumber;
     }
@@ -189,7 +189,7 @@ public class Reservation {
     }
 
     @ManyToOne
-    @JoinColumn(name = "payment_method_code", referencedColumnName = "code", nullable = false)
+    @JoinColumn(name = "payment_method_code", referencedColumnName = "code", nullable = false , insertable = false , updatable = false)
     public RefPaymentMethod getRefPaymentMethodsByPaymentMethodCode() {
         return refPaymentMethodsByPaymentMethodCode;
     }
@@ -199,7 +199,7 @@ public class Reservation {
     }
 
     @ManyToOne
-    @JoinColumn(name = "reservation_status_code", referencedColumnName = "code", nullable = false)
+    @JoinColumn(name = "reservation_status_code", referencedColumnName = "code", nullable = false, insertable = false , updatable = false)
     public RefReservationStatus getRefReservationStatusByReservationStatusCode() {
         return refReservationStatusByReservationStatusCode;
     }

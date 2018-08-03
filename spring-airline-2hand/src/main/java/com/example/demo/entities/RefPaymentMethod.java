@@ -3,14 +3,13 @@ package com.example.demo.entities;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
-@Table(name = "ref_payment_methods", schema = "spring_airline_db", catalog = "")
+@Table(name = "ref_payment_methods", schema = "spring_airline", catalog = "")
 public class RefPaymentMethod {
     private int code;
     private int paymentMethodDescription;
-    private Set<Reservation> reservationsByCode;
+    private Collection<Reservation> reservationsByCode;
 
     @Id
     @Column(name = "code")
@@ -48,11 +47,11 @@ public class RefPaymentMethod {
     }
 
     @OneToMany(mappedBy = "refPaymentMethodsByPaymentMethodCode")
-    public Set<Reservation> getReservationsByCode() {
+    public Collection<Reservation> getReservationsByCode() {
         return reservationsByCode;
     }
 
-    public void setReservationsByCode(Set<Reservation> reservationsByCode) {
+    public void setReservationsByCode(Collection<Reservation> reservationsByCode) {
         this.reservationsByCode = reservationsByCode;
     }
 }

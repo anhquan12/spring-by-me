@@ -12,7 +12,7 @@
         <class>com.example.demo.entities.Airlines</class>
         <class>com.example.demo.entities.Reservation</class>
         <properties>
-            <property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/spring_airline_db"/>
+            <property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/spring_airline"/>
             <property name="toplink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/spring_airline_db"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>

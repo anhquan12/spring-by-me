@@ -4,10 +4,9 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
-@Table(name = "filght_schedules", schema = "spring_airline_db", catalog = "")
+@Table(name = "filght_schedules", schema = "spring_airline", catalog = "")
 public class FilghtSchedule {
     private int id;
     private Timestamp arrivalTime;
@@ -16,7 +15,7 @@ public class FilghtSchedule {
     private String otherDetails;
     private int airlineCode;
     private Airline airlinesByAirlineCode;
-    private Set<Reservation> reservationsById;
+    private Collection<Reservation> reservationsById;
 
     @Id
     @Column(name = "id")
@@ -98,7 +97,7 @@ public class FilghtSchedule {
     }
 
     @ManyToOne
-    @JoinColumn(name = "airline_code", referencedColumnName = "code", nullable = false)
+    @JoinColumn(name = "airline_code", referencedColumnName = "code", nullable = false , insertable = false , updatable = false)
     public Airline getAirlinesByAirlineCode() {
         return airlinesByAirlineCode;
     }
@@ -108,11 +107,11 @@ public class FilghtSchedule {
     }
 
     @OneToMany(mappedBy = "filghtSchedulesByScheduleId")
-    public Set<Reservation> getReservationsById() {
+    public Collection<Reservation> getReservationsById() {
         return reservationsById;
     }
 
-    public void setReservationsById(Set<Reservation> reservationsById) {
+    public void setReservationsById(Collection<Reservation> reservationsById) {
         this.reservationsById = reservationsById;
     }
 }

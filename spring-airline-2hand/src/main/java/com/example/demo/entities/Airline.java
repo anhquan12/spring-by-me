@@ -3,15 +3,14 @@ package com.example.demo.entities;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
-@Table(name = "airlines", schema = "spring_airline_db", catalog = "")
+@Table(name = "airlines", schema = "spring_airline", catalog = "")
 public class Airline {
     private int code;
     private String name;
     private String otherDetails;
-    private Set<FilghtSchedule> filghtSchedulesByCode;
+    private Collection<FilghtSchedule> filghtSchedulesByCode;
 
     @Id
     @Column(name = "code")
@@ -60,11 +59,11 @@ public class Airline {
     }
 
     @OneToMany(mappedBy = "airlinesByAirlineCode")
-    public Set<FilghtSchedule> getFilghtSchedulesByCode() {
+    public Collection<FilghtSchedule> getFilghtSchedulesByCode() {
         return filghtSchedulesByCode;
     }
 
-    public void setFilghtSchedulesByCode(Set<FilghtSchedule> filghtSchedulesByCode) {
+    public void setFilghtSchedulesByCode(Collection<FilghtSchedule> filghtSchedulesByCode) {
         this.filghtSchedulesByCode = filghtSchedulesByCode;
     }
 }

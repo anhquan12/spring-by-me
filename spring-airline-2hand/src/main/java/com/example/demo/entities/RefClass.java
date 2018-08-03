@@ -3,14 +3,13 @@ package com.example.demo.entities;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
-@Table(name = "ref_classes", schema = "spring_airline_db", catalog = "")
+@Table(name = "ref_classes", schema = "spring_airline", catalog = "")
 public class RefClass {
     private int classNumber;
     private String classNumberDescription;
-    private Set<Reservation> reservationsByClassNumber;
+    private Collection<Reservation> reservationsByClassNumber;
 
     @Id
     @Column(name = "class_number")
@@ -48,11 +47,11 @@ public class RefClass {
     }
 
     @OneToMany(mappedBy = "refClassesByClassNumber")
-    public Set<Reservation> getReservationsByClassNumber() {
+    public Collection<Reservation> getReservationsByClassNumber() {
         return reservationsByClassNumber;
     }
 
-    public void setReservationsByClassNumber(Set<Reservation> reservationsByClassNumber) {
+    public void setReservationsByClassNumber(Collection<Reservation> reservationsByClassNumber) {
         this.reservationsByClassNumber = reservationsByClassNumber;
     }
 }
