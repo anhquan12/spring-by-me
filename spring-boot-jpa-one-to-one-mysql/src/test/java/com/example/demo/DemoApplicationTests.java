@@ -1,7 +1,7 @@
 package com.example.demo;
 
-import com.example.demo.controller.UserProfileRepository;
-import com.example.demo.controller.UserRepository;
+import com.example.demo.model.UserProfileRepository;
+import com.example.demo.model.UserRepository;
 import com.example.demo.entity.User;
 import com.example.demo.entity.UserProfile;
 import org.junit.Test;
@@ -36,9 +36,7 @@ public class DemoApplicationTests {
                 "1234"));
         User user = this.userRepository.findByEmail("def@gmail.com");
         assertThat(user.getEmail()).isEqualTo("def@gmail.com");
-        UserProfile userProfile = this.userProfileRepository.findByZipCode("1357");
-        assertThat(userProfile.getZipCode()).isEqualTo("1357");
-
+        UserProfile userProfile = this.userProfileRepository.findByZipCode("123131");
+        assertThat(userProfile.getZipCode()).isEqualTo("123131");
     }
-
 }

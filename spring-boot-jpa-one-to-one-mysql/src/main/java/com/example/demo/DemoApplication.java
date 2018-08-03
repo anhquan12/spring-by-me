@@ -1,7 +1,7 @@
 package com.example.demo;
 
-import com.example.demo.controller.UserProfileRepository;
-import com.example.demo.controller.UserRepository;
+import com.example.demo.model.UserProfileRepository;
+import com.example.demo.model.UserRepository;
 import com.example.demo.entity.Gender;
 import com.example.demo.entity.User;
 import com.example.demo.entity.UserProfile;
@@ -32,8 +32,7 @@ public class DemoApplication implements CommandLineRunner {
         userRepository.deleteAllInBatch();
 
         //=========================================
-//        User user = new User();
-//        UserProfile userProfile = new UserProfile();
+
 //         Create a User instance
         User user = new User("Nguyen", "Van A", "abc@gmail.com",
                 "1234");
