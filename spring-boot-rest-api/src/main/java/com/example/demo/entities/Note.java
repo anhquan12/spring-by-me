@@ -34,14 +34,14 @@ public class Note implements Serializable {
 
     //@Columnchú thích được sử dụng để xác định các thuộc tính của cột sẽ được ánh xạ tới trường được chú thích.
     // Bạn có thể xác định một số thuộc tính như tên, độ dài, nullable, updateable vv
-    //Theo mặc định, một trường được đặt tên createdAtđược ánh xạ tới một cột có tên created_attrong bảng cơ sở dữ liệu.
+    //Theo mặc định, một trường được đặt tên createdAtđược ánh xạ tới một cột có tên created_at trong bảng cơ sở dữ liệu.
     //Tức là tất cả các trường hợp lạc đà được thay thế bằng dấu gạch dưới.
     //Nếu bạn muốn ánh xạ trường này sang một cột khác, bạn có thể chỉ định trường đó bằng cách sử dụng -
             //@Column(name = "created_on")
             //private String createdAt;
     @Column(nullable = false, updatable = false)
 
-    //@Temporalchú thích được sử dụng với java.util.Datevà java.util.Calendarcác lớp.
+    //@Temporalchú thích được sử dụng với java.util.Date và java.util.Calendar các lớp.
     // Nó chuyển đổi các giá trị ngày tháng và thời gian từ Java Object thành kiểu cơ sở dữ liệu tương thích và ngược lại
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate

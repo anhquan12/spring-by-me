@@ -19,7 +19,7 @@ public class NoteController {
 
     //Get All Notes
     @RequestMapping(value="/notes", method=RequestMethod.GET)
-    public List<Note> getAlNotes(){
+    public List<Note> getAllNotes(){
         return notesRepository.findAll();
     }
 
@@ -31,7 +31,7 @@ public class NoteController {
 
     //Get a Single Note
 
-    //@PathVariablechú thích, như tên cho thấy, được sử dụng để ràng buộc một biến con đường với một tham số phương pháp.
+    //@PathVariable chú thích, như tên cho thấy, được sử dụng để ràng buộc một biến con đường với một tham số phương pháp.
     //Trong phương pháp trên, chúng tôi đang ném một ResourceNotFoundExceptionbất cứ khi nào một Notevới id đã cho không được tìm thấy.
     //Điều này sẽ khiến Spring Boot trả về lỗi 404 Not Found cho máy khách (Hãy nhớ rằng,
     // chúng tôi đã thêm @ResponseStatus(value = HttpStatus.NOT_FOUND)chú thích vào ResourceNotFoundExceptionlớp).
